@@ -1,0 +1,21 @@
+[package]
+name = "input-forwarder"
+version = "0.1.0"
+edition = "2021"
+default-run = "sender"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "sender"
+path = "src/main.rs"
+
+[[bin]]
+name = "receiver"
+path = "src/receiver/main.rs"
+
+[dependencies]
+inputbot = { git = "https://github.com/virtual-puppet-project/InputBot.git", commit = "b91aec374fa9539e30b104fe3578948ee5646159" }
+tungstenite = "0.17"
+url = "2.1"
+crossbeam-channel = "0.5"
