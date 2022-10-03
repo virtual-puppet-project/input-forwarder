@@ -2,9 +2,11 @@
 name = "input-forwarder"
 version = "0.1.0"
 edition = "2021"
-default-run = "input-forwarder"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
 
 [[bin]]
 name = "input-forwarder"
@@ -19,3 +21,4 @@ inputbot = { git = "https://github.com/virtual-puppet-project/InputBot.git", rev
 tungstenite = "0.17"
 url = "2.1"
 crossbeam-channel = "0.5"
+gdnative = "0.11"
