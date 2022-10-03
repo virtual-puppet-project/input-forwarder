@@ -233,7 +233,7 @@ dependencies = [
 [[package]]
 name = "inputbot"
 version = "0.5.0"
-source = "git+https://github.com/virtual-puppet-project/InputBot.git#b91aec374fa9539e30b104fe3578948ee5646159"
+source = "git+https://github.com/virtual-puppet-project/InputBot.git?rev=bcda453487e686b2e2621978650454d2b6842af3#bcda453487e686b2e2621978650454d2b6842af3"
 dependencies = [
  "input",
  "libc",
