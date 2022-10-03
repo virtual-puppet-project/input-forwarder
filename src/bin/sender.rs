@@ -28,9 +28,6 @@ fn main() {
 
     println!("conn: {connection_type}, port: {port}");
 
-    let (key_sender, key_receiver) = bounded::<String>(1);
-    let (mouse_sender, mouse_receiver) = bounded::<String>(1);
-
     let (sender, receiver) = bounded::<String>(0);
 
     let _handle = match connection_type.to_lowercase().as_str() {
@@ -42,17 +39,15 @@ fn main() {
         }
     };
 
+    let s0 = sender.clone();
     KeybdKey::bind_all(move |event| {
-        println!("{:?}", &event);
-        key_sender
-            .send(format!("{:?}", event))
+        s0.send(format!("{:?}", event))
             .expect("Unable to send keyboard key");
     });
 
+    let s1 = sender.clone();
     MouseButton::bind_all(move |event| {
-        println!("{:?}", &event);
-        mouse_sender
-            .send(format!("{:?}", event))
+        s1.send(format!("{:?}", event))
             .expect("Unable to send mouse button");
     });
 
